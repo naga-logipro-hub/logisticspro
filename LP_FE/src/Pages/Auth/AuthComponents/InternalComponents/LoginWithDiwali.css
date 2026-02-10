@@ -1,0 +1,225 @@
+.diwali-login-wrapper {
+  position: relative;
+  width: 100%;
+  /* height: 100vh; */
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: url('/images/logistics-bg.jpg') center center / cover no-repeat; */
+  filter: brightness(0.6);
+  z-index: 1;
+}
+
+.fireworks-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: url('/images/fireworks.png') center top / contain no-repeat; */
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 1.5s ease-in-out;
+}
+
+/* Add a class to trigger fade-in */
+.fireworks-overlay.animate-fireworks {
+  opacity: 1;
+}
+
+/* You could also add keyframes for sparkle or movement */
+@keyframes sparkle {
+  0%, 100% { opacity: 0.8; transform: scale(1) }
+  50% { opacity: 1; transform: scale(1.05) }
+}
+.fireworks-overlay.animate-fireworks {
+  animation: sparkle 4s infinite alternate;
+}
+
+.login-container {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.login-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  padding: 2rem;
+}
+
+.diwali-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #FFD700; /* gold */
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.small-wish {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Input & button styling override if needed */
+.login-card .form-control:focus {
+  border-color: #FF8C00; /* deep orange accent */
+  box-shadow: none;
+}
+
+.login-card .btn-primary {
+  background-color: #FF8C00;
+  border-color: #FF8C00;
+}
+
+.login-card .btn-primary:hover {
+  background-color: #e67e22;
+  border-color: #e67e22;
+}
+
+/* Cracker particle styles */
+.cracker-particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 3;
+  box-shadow: 0 0 4px currentColor, 0 0 8px currentColor;
+}
+
+/* Diwali Banner */
+.diwali-banner {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  z-index: 4;
+}
+
+.diwali-banner h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #FFD700;
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  animation: banner-glow 2s infinite alternate;
+}
+
+.diwali-banner p {
+  font-size: 1.2rem;
+  margin: 10px 0 0 0;
+  color: #FFF;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+@keyframes banner-glow {
+  0% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.8); }
+  100% { text-shadow: 0 0 25px rgba(255, 215, 0, 1), 0 0 35px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes diwali-glow-border {
+  0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 165, 0, 0.5); }
+  50% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.8); }
+  100% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5), 0 0 10px rgba(255, 165, 0, 0.5); }
+}
+
+.diwali-glowing-card {
+  animation: diwali-glow-border 3s infinite linear;
+}
+
+/* Container for card + snow overlay */
+.snow-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Background style for the card */
+.winter-card {
+  width: 400px;
+  height: 250px;
+  background: linear-gradient(135deg, #0d1b2a, #1b263b);
+  border: none;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+  z-index: 1;
+}
+
+/* Snow overlay layer */
+.snow {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(white 1px, transparent 1px);
+  background-size: 20px 20px, 30px 30px, 40px 40px;
+  background-position: 0 0, 10px 10px, 20px 20px;
+  animation: snowFall 10s linear infinite;
+  /* animation: snowDrift  10s linear infinite;
+  animation: snowZigZag 12s ease-in infinite; */
+  /* animation: snowFloat 15s ease-in-out infinite; */
+  z-index: 2;
+}
+
+/* Keyframes for snowfall */
+@keyframes snowFall {
+  0% {
+    background-position: 0 0, 10px 10px, 20px 20px;
+  }
+  100% {
+    background-position: 0 1000px, 10px 1010px, 20px 1020px;
+  }
+}
+
+/* Keyframes for snow drift */
+@keyframes snowDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 100vh);
+  }
+}
+
+@keyframes snowZigZag {
+  0% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(30px) translateY(25vh); }
+  50% { transform: translateX(-30px) translateY(50vh); }
+  75% { transform: translateX(15px) translateY(75vh); }
+  100% { transform: translateX(-10px) translateY(100vh); }
+}
+
+@keyframes snowFloat {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(50vh) scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 0.9;
+  }
+}
